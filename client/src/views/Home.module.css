@@ -1,0 +1,6 @@
+.divContainer {
+    /* background-color: blueviolet; */
+    opacity: 0.5; /* Valor entre 0 (transparente) y 1 (opaco) */
+    color: rgb(12, 24, 24);
+    border-style: dashed;
+}

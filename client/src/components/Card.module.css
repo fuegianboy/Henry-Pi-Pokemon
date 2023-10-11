@@ -1,0 +1,9 @@
+.divContainer {
+    background-color: lightgreen;
+    width: 100px;
+    height: 400px;
+    border-style: double;
+    border-radius: 5%;
+    border-width: 10px;
+
+}

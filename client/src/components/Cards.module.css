@@ -1,0 +1,11 @@
+.divContainer {
+    background-color: darkgreen;
+}
+
+.divCards {
+    border-style: double;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin: 20px;
+}
