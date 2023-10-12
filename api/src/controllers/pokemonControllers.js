@@ -56,7 +56,7 @@ const getPokemonByIdController = async (id) => {
     const dataAPI = await getAllPokemonAPI()
     const dataDB = await getAllPokemonDB()
     const dataAll = [...dataAPI, ...dataDB]
-    const pokemon = dataAll.filter(element => element.id === id )
+    const pokemon = (dataAll.filter(element => element.id === id ))[0]
     return pokemon
 
 }
