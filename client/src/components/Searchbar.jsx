@@ -6,6 +6,8 @@ const Searchbar = () => {
   return (
     <div className={style.divContainer}>
         <h1>===SearchBar===</h1>
+        <input type="text" placeholder="ingrese nombre"/>
+        <button>buscar</button>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import {
-    GET_POKEMONS
+    GET_POKEMONS,
 //     FILTER_CREATED,
 //     ORDER_BY_NAME,
 //     ORDER_BY_ATTACK,
 //     FILTER_BY_TYPE,
 //     GET_NAME_POKEMONS,
 //     GET_TYPES,
-//     GET_DETAIL,
-//     CLEAR_DETAIL,
+    GET_DETAIL,
+    CLEAR_DETAIL,
 //     ORDER_BY_HP
   } from "./actions";
   
@@ -15,7 +15,7 @@ import {
     pokemons: [],
     allPokemons: [],
     // types: [],
-    // detail: {},
+    detail: {},
     // notFound: false
   };
   
@@ -26,6 +26,16 @@ import {
           ...state,
           allPokemons:[...action.payload]
         }
+      case GET_DETAIL:
+        return {
+          ...state,
+          detail:action.payload
+        }
+      case CLEAR_DETAIL:
+      return {
+        ...state,
+        detail:{}
+      }
 
 
 

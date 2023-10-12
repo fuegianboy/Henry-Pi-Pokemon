@@ -1,3 +1,16 @@
 .divContainer {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: chartreuse;
+    opacity: 70%;
+    width: 60%
+    
+}
+.divDetail {
+    background-color: coral;
+    
+
 }
