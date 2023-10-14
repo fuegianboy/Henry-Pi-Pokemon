@@ -1,41 +1,83 @@
 import {
-    GET_POKEMONS,
-//     FILTER_CREATED,
-//     ORDER_BY_NAME,
-//     ORDER_BY_ATTACK,
-//     FILTER_BY_TYPE,
-//     GET_NAME_POKEMONS,
-//     GET_TYPES,
-    GET_DETAIL,
-    CLEAR_DETAIL,
-//     ORDER_BY_HP
-  } from "./actions";
-  
-  let initialState = {
-    pokemons: [],
-    allPokemons: [],
-    // types: [],
-    detail: {},
-    // notFound: false
-  };
-  
-  const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case GET_POKEMONS:
-        return {
-          ...state,
-          allPokemons:[...action.payload]
-        }
-      case GET_DETAIL:
-        return {
-          ...state,
-          detail:action.payload
-        }
-      case CLEAR_DETAIL:
+  GET_POKEMONS,
+  //     FILTER_CREATED,
+      ORDER_BY_NAME,
+  //     ORDER_BY_ATTACK,
+  //     FILTER_BY_TYPE,
+  GET_POKEMONBYNAME,
+  GET_TYPES,
+  GET_DETAIL,
+  CLEAR_DETAIL,
+  //     ORDER_BY_HP
+} from "./actions";
+
+let initialState = {
+  pokemons: [],
+  allPokemons: [],
+  types: [],
+  detail: {},
+  // notFound: false
+};
+
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+
+    case GET_POKEMONS:
+      return {
+        ...state,
+        allPokemons:[...action.payload],
+        pokemons:[...action.payload]
+      }
+      
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail:action.payload
+      }
+    case CLEAR_DETAIL:
       return {
         ...state,
         detail:{}
       }
+          
+    case GET_TYPES:
+        return {
+          ...state,
+          types:[...action.payload]
+        }
+    
+    case GET_POKEMONBYNAME:
+      return {
+        ...state,
+        pokemons:action.payload
+      }
+
+    case ORDER_BY_NAME:
+      let order =
+      action.payload === "asc"
+        ? state.pokemons.sort((a, b) => {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if (b.name > a.name) {
+              return -1;
+            }
+            return 0;
+          })
+        : state.pokemons.sort((a, b) => {
+            if (a.name > b.name) {
+              return -1;
+            }
+            if (b.name > a.name) {
+              return 1;
+            }
+            return 0;
+          });
+          console.log(order)
+      return {
+        ...state,
+        pokemons: [...order],
+      };
 
 
 
@@ -46,21 +88,6 @@ import {
 
 
 
-
-
-
-
-
-
-
-
-      // case GET_POKEMONS:
-      //   return {
-      //     ...state,
-      //     pokemons: action.payload,
-      //     allPokemons: action.payload,
-      //     notFound: false,
-      //   };
     //   case GET_NAME_POKEMONS:
     //     if (action.payload.error) {
     //       return {
@@ -76,11 +103,7 @@ import {
     //       };
     //     }
   
-    //   case GET_TYPES:
-    //     return {
-    //       ...state,
-    //       types: action.payload,
-    //     };
+
     //   case FILTER_CREATED:
     //     const createdFilter =
     //       action.payload === "created"
@@ -142,16 +165,6 @@ import {
     //     return {
     //       ...state,
     //       pokemons: filterType,
-    //     };
-    //   case GET_DETAIL:
-    //     return {
-    //       ...state,
-    //       detail: action.payload,
-    //     };
-    //   case CLEAR_DETAIL:
-    //     return {
-    //       ...state,
-    //       detail: {},
     //     };
   
     //   case ORDER_BY_HP:

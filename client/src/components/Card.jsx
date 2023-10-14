@@ -9,11 +9,11 @@ const  Card = ({pokemon}) => {
       <Link to={`/detail/${id}`}    >
         <div>
           <h6>## Pokemon Card ##</h6>
-          <h6>{pokemon.name}</h6>
-          <h6>{pokemon.image}</h6>
-          <h6>{pokemon.types}</h6>
-          <h6>{pokemon.height}</h6>
-          <h6>{pokemon.weight}</h6>
+          <img src={pokemon.image} alt="Not found" width={"100px"}/>
+          <h6>Name:{pokemon.name}</h6>
+          <h6>Types{pokemon.types}</h6>
+          <h6>Attack:{pokemon.attack}</h6>
+          <h6>HP:{pokemon.hp}</h6>
         </div>
       </Link>
 
