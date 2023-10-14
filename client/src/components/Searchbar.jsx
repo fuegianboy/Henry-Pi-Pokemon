@@ -10,13 +10,11 @@ const Searchbar = () => {
   const [name, setName] = useState("")
 
   const handleInputChange =(e)=>{
-    console.log(name)
     e.preventDefault()
     setName(e.target.value)
   }
   const handleSubmit =(e)=>{
     e.preventDefault()
-    console.log(name)
     dispatch(getPokemonByName(name))
   }
 

@@ -1,14 +1,16 @@
 import {
   GET_POKEMONS,
+  FILTER_BY_SOURCE,
+
   //     FILTER_CREATED,
       ORDER_BY_NAME,
-  //     ORDER_BY_ATTACK,
+      ORDER_BY_ATTACK,
   //     FILTER_BY_TYPE,
   GET_POKEMONBYNAME,
   GET_TYPES,
   GET_DETAIL,
   CLEAR_DETAIL,
-  //     ORDER_BY_HP
+      ORDER_BY_HP
 } from "./actions";
 
 let initialState = {
@@ -53,7 +55,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case ORDER_BY_NAME:
-      let order =
+      let byname =
       action.payload === "asc"
         ? state.pokemons.sort((a, b) => {
             if (a.name > b.name) {
@@ -73,11 +75,92 @@ const rootReducer = (state = initialState, action) => {
             }
             return 0;
           });
-          console.log(order)
       return {
         ...state,
-        pokemons: [...order],
+        pokemons: [...byname],
       };
+
+    case ORDER_BY_ATTACK:
+      let byattack =
+      action.payload === "min"
+        ? state.pokemons.sort((a, b) => {
+            if (a.attack > b.attack) {
+              return 1;
+            }
+            if (b.attack > a.attack) {
+              return -1;
+            }
+            return 0;
+          })
+        : state.pokemons.sort((a, b) => {
+            if (a.attack > b.attack) {
+              return -1;
+            }
+            if (b.attack > a.attack) {
+              return 1;
+            }
+            return 0;
+          });
+      return {
+        ...state,
+        pokemons: [...byattack],
+      };
+
+      case ORDER_BY_HP:
+        let byHP =
+        action.payload === "min"
+          ? state.pokemons.sort((a, b) => {
+              if (a.life > b.life) {
+                return 1;
+              }
+              if (b.life > a.life) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.pokemons.sort((a, b) => {
+              if (a.life > b.life) {
+                return -1;
+              }
+              if (b.life > a.life) {
+                return 1;
+              }
+              return 0;
+            });
+        return {
+          ...state,
+          pokemons: [...byHP],
+        };
+
+
+        case FILTER_BY_SOURCE:
+          let filtered =
+          action.payload === "DB"
+            ? state.allPokemons.filter(e =>  e.id.includes("X"))
+            : state.allPokemons.filter(e => !e.id.includes("X"))
+          return {
+            ...state,
+            pokemons: [...filtered],
+          };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

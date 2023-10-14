@@ -52,7 +52,6 @@ const getPokemonByName = async (name) => {
 }
 
 const getPokemonByIdController = async (id) => {
-    console.log(id)
     const dataAPI = await getAllPokemonAPI()
     const dataDB = await getAllPokemonDB()
     const dataAll = [...dataAPI, ...dataDB]

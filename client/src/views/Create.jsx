@@ -34,17 +34,12 @@ const Create = () => {
   //   types:""
   // })
 
-  // const validate =()=>{
-  //   console.log(error)
-  // }
-
   const handleChange = (e) => {
     e.preventDefault();
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data)
     // setError(
     //   validate({
       //     ...data,
@@ -78,8 +73,7 @@ const Create = () => {
     
     useEffect(()=>{
         dispatch(getTypes())
-        console.log("pasoooooo pooooor useEfeeeeect")
-        console.log(types)
+
         // eslint-disable-next-line
     },[dispatch])
   

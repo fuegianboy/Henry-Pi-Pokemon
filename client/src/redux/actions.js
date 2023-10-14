@@ -7,6 +7,10 @@ export const CLEAR_DETAIL= "CLEAR_DETAIL"
 export const CREATE_POKEMON= "CREATE_POKEMON"
 export const GET_POKEMONBYNAME= "GET_POKEMONBYNAME"
 export const ORDER_BY_NAME= "ORDER_BY_NAME"
+export const ORDER_BY_ATTACK= "ORDER_BY_ATTACK"
+export const ORDER_BY_HP= "ORDER_BY_HP"
+export const FILTER_BY_SOURCE= "FILTER_BY_SOURCE"
+
 
 
 
@@ -100,3 +104,24 @@ export const orderByName = (order) => {
         payload: order
     };
   };
+
+export const orderByAttack = (order) => {
+    return {
+        type: ORDER_BY_ATTACK,
+        payload: order
+    };
+};
+
+export const orderByHP = (order) => {
+    return {
+        type: ORDER_BY_HP,
+        payload: order
+    };
+};
+
+export const filterBySource = (filter) => {
+    return {
+        type: FILTER_BY_SOURCE,
+        payload: filter
+    };
+};

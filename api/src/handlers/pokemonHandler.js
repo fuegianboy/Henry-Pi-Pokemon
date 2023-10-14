@@ -22,7 +22,6 @@ const postPokemon = async (req, res) => {
 
 const getPokemonById = async (req, res) => {
     const {id} = req.params
-    console.log(id)
     try {
         const response = await getPokemonByIdController(id)
         return res.status(200).send(response)
