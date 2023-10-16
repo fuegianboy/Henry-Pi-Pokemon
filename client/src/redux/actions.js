@@ -10,9 +10,7 @@ export const ORDER_BY_NAME= "ORDER_BY_NAME"
 export const ORDER_BY_ATTACK= "ORDER_BY_ATTACK"
 export const ORDER_BY_HP= "ORDER_BY_HP"
 export const FILTER_BY_SOURCE= "FILTER_BY_SOURCE"
-
-
-
+export const FILTER_BY_TYPE= "FILTER_BY_TYPE"
 
 export function getPokemons() {
     return async function(dispatch) {
@@ -125,3 +123,11 @@ export const filterBySource = (filter) => {
         payload: filter
     };
 };
+
+export const filterByType = (filter) => {
+    return {
+        type: FILTER_BY_TYPE,
+        payload: filter
+    };
+};
+

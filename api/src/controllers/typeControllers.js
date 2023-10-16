@@ -7,9 +7,13 @@ const getTypesController = async () =>{
     typeAPI.data.results.forEach(element => {
         types.push({name: element.name})
     });
-    const result = await Type.bulkCreate(types);
-    return result
-    
+
+    const count = await Type.count();
+    if (count === 0) {
+        const result = await Type.bulkCreate(types)
+        return result
+    }
+    return types
 }
 
 module.exports = {getTypesController}
