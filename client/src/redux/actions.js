@@ -68,6 +68,7 @@ export function getTypes() {
 }
 
 export function createPokemon(data) {
+    console.log(data)
     return async function(dispatch) {
         try {
             const response = await axios.post(`http://localhost:3001/pokemon`, data)

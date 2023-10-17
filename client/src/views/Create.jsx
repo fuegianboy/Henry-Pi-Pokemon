@@ -8,13 +8,12 @@ import {getTypes, createPokemon} from "../redux/actions"
 const Create = () => {
 
   const dispatch = useDispatch()
-
   const types = useSelector(state=>state.types)
 
   const [data, setData] = useState({
     name:"",
     image:"",
-    life:8,
+    life:0,
     attack:0,
     defense:0,
     speed:0,
@@ -48,35 +47,69 @@ const Create = () => {
       // );
     }
     
-    const handleSubmit = (data) => {
-      dispatch(createPokemon(data))
-    }
-
-    const handleSelect = (e) => {
-      e.preventDefault();
+    
+    const handleSubmit = (e) => {
+      e.preventDefault()
       setData({
-        ...data,
-        types: [...data.types, e.target.value],
-      });
+          name: data.name,
+          image: data.image,
+          life:parseInt(data.life),
+          attack:parseInt(data.attack),
+          defense:parseInt(data.defense),
+          speed:parseInt(data.speed),
+          height:parseInt(data.height),
+          weight:parseInt(data.weight),
+          types,
+      })
+      dispatch(createPokemon(data))
+      setData({
+        name: "",
+        image: "",
+        life:0,
+        attack:0,
+        defense:0,
+        speed:0,
+        height:0,
+        weight:0,
+        types:[],
+      })
     }
-
-    const [checkBox, setCheckBox] = useState([]);
-
-    // const handleCheckboxChange = (event) => {
-    //   const { value, checked } = event.target;
-    //   if (checked) {
-    //     setCheckBox([...checkBox, value]);
-    //   } else {
-    //     setCheckBox(checkBox.filter((opcion) => opcion !== value));
-    //   }
-    // };
+    
+    // const handleSelect = (e) => {
+      //   e.preventDefault();
+      //   setData({
+        //     ...data,
+        //     types: [...data.types, e.target.value],
+        //   });
+        // }
+        
+    const [selected, setSelected] = useState([]);
+        
+    const handleCheckboxChange = (event) => {
+      // const value = parseInt(event.target.value)
+      const { value, checked } = event.target
+      console.log( value , checked)
+      if (checked) {
+        setSelected([...selected, value]);
+        setData({
+          ...data,
+          types:[...selected, value],
+        });
+      } else {
+        setSelected(selected.filter((opt) => opt !== value));
+        setData({
+          ...data,
+          types:selected.filter((opt) => opt !== value),
+        });
+      }
+    }
+    console.log(data)
     
     useEffect(()=>{
         dispatch(getTypes())
-
         // eslint-disable-next-line
     },[dispatch])
-  
+
   return (
     <div className={style.divContainer}>
         <h1>Create Pokemon Page</h1>
@@ -99,14 +132,12 @@ const Create = () => {
             onChange={handleChange}></input>
           <p></p>
 
-
           <label>Life:</label>
           <input type="number"
             name='life'
             value={ data.life }
             onChange={handleChange}></input>
           <p></p>
-
 
           <label>Attack:</label>
           <input
@@ -116,7 +147,6 @@ const Create = () => {
             onChange={handleChange}></input>
           <p></p>
 
-          
           <label>Defense:</label>
           <input
             type="number"
@@ -124,7 +154,6 @@ const Create = () => {
             value={ data.defense }
             onChange={handleChange}></input>
           <p></p>
-
           
           <label>Speed:</label>
           <input
@@ -134,7 +163,6 @@ const Create = () => {
             onChange={handleChange}></input>
           <p></p>
 
-
           <label>Height:</label>
           <input
             type="number"
@@ -142,7 +170,6 @@ const Create = () => {
             value={ data.height }
             onChange={handleChange}></input>
           <p></p>
-
 
           <label>Weight:</label>
           <input
@@ -153,55 +180,23 @@ const Create = () => {
           <p></p>
 
           <label>Types:</label>
-          {/* <fieldset>
-            <legend>Selecciona tus opciones:</legend>
-            {types.map((opcion, index) => (
-              <div key={index}>
-                <label>
-                <input
-                  type="checkbox"
-                  name="opciones"
-                  value={opcion}
-                  checked={checkBox.includes(opcion)}
-                  onChange={handleCheckboxChange}
-                />
-                {opcion}
-                </label>
-              </div>
-            ))}
-          </fieldset> */}
-
           <div>
-            <label>Tipo:</label>
-            <select onChange={(e) => handleSelect(e)}>
-              {types.map((t, index) => (
-                <option key={index} value={t.name}>
-                  {t.name}
-                </option>
-              ))}
-            </select>
-            <div>
-              {/* {errors.types && (
-                <span className={style.spanError} style={{ color: "#e74c3c" }}>
-                  {errors.types}
-                </span>
-              )} */}
-            </div>
+                      {types.map((opcion, index) => (
+                        <div key={index}>
+                          <label>
+                            <input
+                              type="checkbox"
+                              value={(index+1).toString()}
+                              checked={selected.includes((index+1).toString())}
+                              onChange={handleCheckboxChange}
+                            />
+                            {opcion.name + " " + (1+ index)}
+                          </label>
+                        </div>
+                      ))}
           </div>
 
-
-          {/* <select
-                onChange={(e) => handleSelect(e)}
-              >
-                {types.map((t, index) => (
-                  <option key={index} value={t.name}>
-                    {t.name}
-                  </option>
-                ))}
-              </select>
-          <p></p>   */}
-
-          <button onClick={handleSubmit}>Crear Pokemon</button>
+          <button type="submit" onClick={handleSubmit}>Crear Pokemon</button>
         </form>
         <Link to ="/home">
           <button>Volver a Home</button>
