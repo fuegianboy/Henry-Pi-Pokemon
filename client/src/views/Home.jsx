@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 
@@ -6,6 +6,7 @@ import{getPokemons, getTypes, orderByName, orderByAttack, orderByHP, filterBySou
 
 import Cards from "../components/Cards"
 import Navbar from "../components/Navbar"
+import Pagination from "../components/Pagination";
 
 import style from "./Home.module.css";
 
@@ -51,7 +52,18 @@ const Home = () => {
     dispatch(getTypes())
   },[dispatch])
 
+  //----------paginado----------------------------------
+  const [dataQt, setDataQt] = useState(9)
+  const [currentPage, setCurrentPage] = useState(1)
+  
+  const indexFin = currentPage * dataQt
+  const indexIni = indexFin - dataQt
+  
+  const allPokPagin = allPokemons.slice(indexIni, indexFin)
 
+  const nPages = Math.ceil(allPokemons.length / dataQt)
+  
+  //----------------------------------------------------
   return (
 
     <div className={style.divContainer}>
@@ -89,13 +101,10 @@ const Home = () => {
             types.map((e, index)=>(<option key={index} value={e.name} >{e.name}</option>) )
           }
         </select>
-
-
-
-
-
         <Navbar />
-        <Cards allPokemons={allPokemons}/>
+        <Cards allPokemons={allPokPagin}/>
+        <Pagination setCurrentPage={setCurrentPage} currentPage = {currentPage} nPages={nPages} />
+
     </div>
   );
 };
