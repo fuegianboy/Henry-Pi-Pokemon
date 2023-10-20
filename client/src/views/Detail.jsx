@@ -9,10 +9,10 @@ const  Detail = () => {
   const dispatch = useDispatch()
   
   useEffect(()=>{
-    dispatch(getDetail(id)) /// todo lo que pasa cuando se monta
-    return ()=>dispatch(clearDetail()) /// todo lo que pasa cuando se desmonta
-        // eslint-disable-next-line
-  },[])/// todo lo que pasa cuando se actualiza lo que pongas aca
+    dispatch(getDetail(id))
+    return ()=>dispatch(clearDetail())
+    // eslint-disable-next-line
+  },[])
 
   const detail = useSelector(state =>state.detail)
   

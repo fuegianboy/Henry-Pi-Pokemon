@@ -53,21 +53,21 @@ const Home = () => {
   },[dispatch])
 
   //----------paginado----------------------------------
-  const [dataQt, setDataQt] = useState(9)
+  const [dataQt, setDataQt] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
   
   const indexFin = currentPage * dataQt
   const indexIni = indexFin - dataQt
   
   const allPokPagin = allPokemons.slice(indexIni, indexFin)
-
+  
   const nPages = Math.ceil(allPokemons.length / dataQt)
   
   //----------------------------------------------------
   return (
-
+    
     <div className={style.divContainer}>
-        <h1>==========Home Page=========</h1>
+      <Navbar />
 
         <button onClick={(e) => handleFilterClear(e)}>Clear Fiter/Sort</button>
 
@@ -101,7 +101,6 @@ const Home = () => {
             types.map((e, index)=>(<option key={index} value={e.name} >{e.name}</option>) )
           }
         </select>
-        <Navbar />
         <Cards allPokemons={allPokPagin}/>
         <Pagination setCurrentPage={setCurrentPage} currentPage = {currentPage} nPages={nPages} />
 

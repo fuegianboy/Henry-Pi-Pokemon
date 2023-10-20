@@ -1,11 +1,16 @@
 .App {
-  text-align: center;
-  /* fondo */
-  background-image: url("./img/pokemon-hd-cool-art_3012x1918.jpg");
+  background-color: bisque;
+  /* background-image: url("./img/FondoLanding.jpg");
   background-size:cover;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 1200px;
+  height: 100vh; */
+
+  
+  /* text-align: center; */
+  /* fondo */
+  /* background-image: url("./img/pokemon-hd-cool-art_3012x1918.jpg"); */
+  /* background-repeat: no-repeat; */
+  /* height: 1200px; */
 
 }
 

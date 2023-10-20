@@ -9,7 +9,6 @@ import About from "./views/About"
 function App() {
   return (
     <div className="App">
-      <h1>Henry Pokemon - Adrian Velazquez</h1>
         <Route exact path = "/" component = {Landing}/>
         <Route exact path = "/home" component = {Home}/>
         <Route path = "/detail/:id" component = {Detail}/>

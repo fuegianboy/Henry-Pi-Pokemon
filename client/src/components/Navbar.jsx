@@ -6,7 +6,8 @@ import Searchbar from "./Searchbar";
 const Navbar = () => {
   return (
     <div className={style.divContainer}>
-        <h1>NavBar Page</h1>
+        {/* <h1>NavBar Page</h1> */}
+        
         <Link to="/home">
           <button>Home</button>
         </Link>
