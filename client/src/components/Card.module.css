@@ -1,9 +1,29 @@
 .divContainer {
-    background-color: lightgreen;
-    width: 100px;
-    height: 400px;
+    background-color: rgba(230, 230, 179, 0.3);
+    width: 200px;
+    height: 265px;
     border-style: double;
     border-radius: 5%;
-    border-width: 10px;
+    border-width: 5px;
+    margin: 5px 10px 5px 10px
+}
 
+.divData {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+div h6 {
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+
+img {
+    margin: 0px 10px 0px 30px;
 }

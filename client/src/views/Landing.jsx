@@ -6,13 +6,10 @@ const Landing = () => {
   return (
     <div className={style.divContainer}>
       <div>
-        {/* <h1>Landing Page</h1> */}
         <Link to="/home">
-            <h3 className={style.h3}>Vamos para Home</h3>
+            <h3 className={style.h3}>Home</h3>
+            <div  className={style.pokeball}></div>
         </Link>
-        {/* <Link to="/about">
-            <h3>Vamos para About</h3>
-        </Link> */}
       </div>
     </div>
   );

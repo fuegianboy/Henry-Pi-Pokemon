@@ -6,7 +6,7 @@ import style from "./Cards.module.css";
 const  Cards = ({allPokemons}) => {
   return (
     <div className={style.divContainer}>
-        <h1>Pokemon Cards Container Page</h1>
+        <h2>Get Pokemons !</h2>
         <div className={style.divCards}>
           {allPokemons?.map((pokemon,index)=>(
             <Card key={index} pokemon={pokemon}/>

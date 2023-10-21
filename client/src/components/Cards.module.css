@@ -1,12 +1,19 @@
 .divContainer {
-    background-color: darkgreen;
+    background-color: transparent;
 }
 
 .divCards {
-    border-style: double;
+    /* border-style: double; */
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 20px;
+    flex-wrap:wrap;
+    margin: 5px;
+}
+
+h2 {
+    color:rgb(22, 71, 60);
+    text-align: center;
+    text-decoration: underline;
+    margin: 5px 0px 5px 0px;
 }

@@ -7,17 +7,21 @@ const Navbar = () => {
   return (
     <div className={style.divContainer}>
         {/* <h1>NavBar Page</h1> */}
-        
-        <Link to="/home">
-          <button>Home</button>
-        </Link>
-
-        <Link to="/create">
-          <button>Crear Pokemon</button>
-        </Link>
-        <Link to="/about">
-            <button>Vamos para About Me</button>
-        </Link>
+        <div>
+          <Link to="/home">
+            <button className={style.buttonStyle}>Home</button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/create">
+            <button className={style.buttonStyle}>Create</button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/about">
+              <button className={style.buttonStyle}>About Me</button>
+          </Link>
+        </div>
         <Searchbar />
         
     </div>

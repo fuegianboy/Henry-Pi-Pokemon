@@ -68,34 +68,33 @@ const Home = () => {
     
     <div className={style.divContainer}>
       <Navbar />
+          <button className={style.buttonStyle} onClick={(e) => handleFilterClear(e)}>Reload</button>
 
-        <button onClick={(e) => handleFilterClear(e)}>Clear Fiter/Sort</button>
-
-        <select onChange={(e) => handleSortName(e)}>
-          <option value="Name">Name</option>
+        <select className={style.selectStyle} onChange={(e) => handleSortName(e)}>
+          <option value="Name" selected>Name</option>
           <option value="asc">A - Z</option>
           <option value="des">Z - A</option>
         </select>
 
-        <select onChange={(e) => handleSortAttack(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleSortAttack(e)}>
           <option value="attack">Attack</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
 
-        <select onChange={(e) => handleSortHP(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleSortHP(e)}>
           <option value="hp">HP</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
 
-        <select onChange={(e) => handleFilterSource(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleFilterSource(e)}>
           <option value="Source">Source</option>
           <option value="API">API</option>
           <option value="DB">DB</option>
         </select>
 
-        <select onChange={(e) => handleFilterType(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleFilterType(e)}>
           <option value="Types">Types</option>
           {
             types.map((e, index)=>(<option key={index} value={e.name} >{e.name}</option>) )

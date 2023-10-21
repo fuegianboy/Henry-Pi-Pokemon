@@ -10,12 +10,15 @@ export default function Pagination({setCurrentPage, currentPage, nPages}) {
 
   return (
     <div className={style.divContainer}>
-        <div>Pagination</div>
-        <div>
-            <button onClick={prev}>Prev</button>
-            <h3>{currentPage} / {nPages}</h3>
-            <button onClick={next}>Next</button>
-        </div>
+          <div>
+            <button className={style.buttonStyle} onClick={prev}>Prev</button>
+          </div>
+          <div >
+            <h3 className={style.paginStyle} >{currentPage} / {nPages}</h3>
+          </div>
+          <div>
+            <button className={style.buttonStyle} onClick={next}>Next</button>
+          </div>
     </div>
   )
 }
