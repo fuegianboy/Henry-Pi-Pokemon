@@ -16,7 +16,7 @@
 
 .divData {
   background-color: rgba(230, 230, 179, 0.2);
-  border-radius: 10%;
+  border-radius: 20px;
   border-style: double;
   display: flex;
   /* align-items: center;

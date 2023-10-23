@@ -131,95 +131,140 @@ const Create = () => {
     },[dispatch])
   return (
     <div className={style.divContainer}>
-        <h1>Create Pokemon Page</h1>
-        <h4>Aca van todos los campos a completa del nuevo pokemon creado</h4>
-        <form onSubmit={handleSubmit}>
-          <label>Name:</label>
-          <input 
-            type="text"
-            name='name'
-            value={ data.name }
-            onChange={handleChange}></input>
-          <p>{error.name}</p>
 
-          <label>Image:</label>
-          <input
-            type="text"
-            name='image'
-            value={ data.image }
-            onChange={handleChange}></input>
-          <p>{error.image}</p>
-
-          <label>Life:</label>
-          <input type="number"
-            name='life'
-            value={ data.life }
-            onChange={handleChange}></input>
-          <p>{error.life}</p>
-
-          <label>Attack:</label>
-          <input
-            type="number"
-            name='attack'
-            value={ data.attack }
-            onChange={handleChange}></input>
-          <p>{error.attack}</p>
-
-          <label>Defense:</label>
-          <input
-            type="number"
-            name='defense'
-            value={ data.defense }
-            onChange={handleChange}></input>
-          <p>{error.defense}</p>
-          
-          <label>Speed:</label>
-          <input
-            type="number"
-            name='speed'
-            value={ data.speed }
-            onChange={handleChange}></input>
-          <p>{error.speed}</p>
-
-          <label>Height:</label>
-          <input
-            type="number"
-            name='height'
-            value={ data.height }
-            onChange={handleChange}></input>
-          <p>{error.height}</p>
-
-          <label>Weight:</label>
-          <input
-            type="number"
-            name='weight'
-            value={ data.weight }
-            onChange={handleChange}></input>
-          <p>{error.weight}</p>
-
-          <label>Types:</label>
-          <div className={style.divTypes}>
-            {types.map((opcion, index) => (
-              <div key={index}>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={(index+1).toString()}
-                    checked={selected.includes((index+1).toString())}
-                    onChange={handleCheckboxChange}
-                  />
-                  {opcion.name}
-                </label>
-              </div>
-            ))}
-            <p>{error.types}</p>
-          </div>
-
-          <button disabled={disable()} type="submit" onClick={handleSubmit}>Crear Pokemon</button>
-        </form>
-        <Link to ="/home">
-          <button>Volver a Home</button>
+      <div>
+        <Link to="/home">
+          <h3 className={style.h3}>Home</h3>
+          <div  className={style.pokeball}></div>
         </Link>
+      </div>
+
+      <div className={style.divCreate}>
+
+        <h2>Create Pokemon</h2>
+
+        <form onSubmit={handleSubmit}>
+
+          <div className={style.divForm}>
+
+              <div className={style.divSelect}>
+
+                <label>Name:</label>
+                <input 
+                  type="text"
+                  name='name'
+                  value={ data.name }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.name}</span>
+                </div>
+
+                <label>Image:</label>
+                <input
+                  type="text"
+                  name='image'
+                  value={ data.image }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.image}</span>
+                </div>
+
+                <label>Life:</label>
+                <input type="number"
+                  name='life'
+                  value={ data.life }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.life}</span>
+                </div>
+
+                <label>Attack:</label>
+                <input
+                  type="number"
+                  name='attack'
+                  value={ data.attack }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.attack}</span>
+                </div>
+
+                <label>Defense:</label>
+                <input
+                  type="number"
+                  name='defense'
+                  value={ data.defense }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.defense}</span>
+                </div>
+                
+                <label>Speed: </label>
+                <input
+                  type="number"
+                  name='speed'
+                  value={ data.speed }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.speed}</span>
+                </div>
+
+                <label>Height: </label>
+                <input
+                  type="number"
+                  name='height'
+                  value={ data.height }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.height}</span>
+                </div>
+
+                <label>Weight:  </label>
+                <input
+                  type="number"
+                  name='weight'
+                  value={ data.weight }
+                  onChange={handleChange}></input>
+                <div className={style.error}>
+                  <span>{error.weight}</span>
+                </div>
+              </div>
+
+              <div className={style.divTypesImage}>
+                <div className={style.divImage}>
+                  <h3>--Pokemon Image--</h3>
+                </div>
+
+                <div className={style.divTypesa}>
+                  <label>Types:</label>
+                  <div className={style.divTypes}>
+                    {types.map((opcion, index) => (
+                      <div key={index}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value={(index+1).toString()}
+                            checked={selected.includes((index+1).toString())}
+                            onChange={handleCheckboxChange}
+                            />
+                          {opcion.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                <div className={style.error}>
+                  <span>{error.types}</span>
+                </div>
+
+                  <div className={style.divButton}>
+                    <button className={style.buttonStyle} disabled={disable()} type="submit" onClick={handleSubmit}>Create</button>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+        </form>
+
+      </div>
     </div>
   );
 };
