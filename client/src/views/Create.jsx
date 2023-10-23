@@ -149,7 +149,7 @@ const Create = () => {
 
               <div className={style.divSelect}>
 
-                <label>Name:</label>
+                <label>Name: </label>
                 <input 
                   type="text"
                   name='name'
@@ -159,7 +159,7 @@ const Create = () => {
                   <span>{error.name}</span>
                 </div>
 
-                <label>Image:</label>
+                <label>Image: </label>
                 <input
                   type="text"
                   name='image'
@@ -169,7 +169,7 @@ const Create = () => {
                   <span>{error.image}</span>
                 </div>
 
-                <label>Life:</label>
+                <label>Life: </label>
                 <input type="number"
                   name='life'
                   value={ data.life }
@@ -178,7 +178,7 @@ const Create = () => {
                   <span>{error.life}</span>
                 </div>
 
-                <label>Attack:</label>
+                <label>Attack: </label>
                 <input
                   type="number"
                   name='attack'
@@ -188,7 +188,7 @@ const Create = () => {
                   <span>{error.attack}</span>
                 </div>
 
-                <label>Defense:</label>
+                <label>Defense: </label>
                 <input
                   type="number"
                   name='defense'
@@ -255,10 +255,10 @@ const Create = () => {
                   <span>{error.types}</span>
                 </div>
 
-                  <div className={style.divButton}>
-                    <button className={style.buttonStyle} disabled={disable()} type="submit" onClick={handleSubmit}>Create</button>
-                  </div>
 
+                </div>
+                <div className={style.divButton}>
+                  <button className={style.buttonStyle} disabled={disable()} type="submit" onClick={handleSubmit}>Create</button>
                 </div>
               </div>
           </div>
