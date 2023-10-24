@@ -86,6 +86,7 @@ const Create = () => {
         weight:0,
         types:[],
       })
+      setSelected([])
     }
     
     const [selected, setSelected] = useState([]);
@@ -123,6 +124,8 @@ const Create = () => {
         dispatch(getTypes())
         // eslint-disable-next-line
     },[dispatch])
+
+
   return (
     <div className={style.divContainer}>
 
@@ -143,8 +146,9 @@ const Create = () => {
 
               <div className={style.divSelect}>
 
-                <label>Name: </label>
+                <label className={style.labelCreate}>Name:</label>
                 <input 
+                  className={style.input}
                   type="text"
                   name='name'
                   value={ data.name }
@@ -153,8 +157,9 @@ const Create = () => {
                   <span>{error.name}</span>
                 </div>
 
-                <label>Image: </label>
+                <label className={style.labelCreate}>Image: </label>
                 <input
+                  className={style.input}
                   type="text"
                   name='image'
                   value={ data.image }
@@ -163,8 +168,10 @@ const Create = () => {
                   <span>{error.image}</span>
                 </div>
 
-                <label>Life: </label>
-                <input type="number"
+                <label className={style.labelCreate}>Life: </label>
+                <input 
+                  className={style.input}
+                  type="number"
                   name='life'
                   value={ data.life }
                   onChange={handleChange}></input>
@@ -172,8 +179,9 @@ const Create = () => {
                   <span>{error.life}</span>
                 </div>
 
-                <label>Attack: </label>
+                <label className={style.labelCreate}>Attack: </label>
                 <input
+                  className={style.input}
                   type="number"
                   name='attack'
                   value={ data.attack }
@@ -182,8 +190,9 @@ const Create = () => {
                   <span>{error.attack}</span>
                 </div>
 
-                <label>Defense: </label>
+                <label className={style.labelCreate}>Defense: </label>
                 <input
+                  className={style.input}
                   type="number"
                   name='defense'
                   value={ data.defense }
@@ -192,8 +201,9 @@ const Create = () => {
                   <span>{error.defense}</span>
                 </div>
                 
-                <label>Speed: </label>
+                <label className={style.labelCreate}>Speed: </label>
                 <input
+                  className={style.input}
                   type="number"
                   name='speed'
                   value={ data.speed }
@@ -202,8 +212,9 @@ const Create = () => {
                   <span>{error.speed}</span>
                 </div>
 
-                <label>Height: </label>
+                <label className={style.labelCreate}>Height: </label>
                 <input
+                  className={style.input}
                   type="number"
                   name='height'
                   value={ data.height }
@@ -212,8 +223,9 @@ const Create = () => {
                   <span>{error.height}</span>
                 </div>
 
-                <label>Weight:  </label>
+                <label className={style.labelCreate}>Weight:  </label>
                 <input
+                  className={style.input}
                   type="number"
                   name='weight'
                   value={ data.weight }

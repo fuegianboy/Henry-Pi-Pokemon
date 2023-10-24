@@ -1,15 +1,10 @@
 .divContainer {
-    /* background-color: blueviolet; */
-    /* opacity: 0.5; Valor entre 0 (transparente) y 1 (opaco) */
     color: rgb(12, 24, 24);
-
     background-image: url("../img/FondoHome2.jpg");
     background-size:cover;
+    background-attachment: fixed;
     width: 100%;
-    height: 100vh;
-    /* display: flex;
-    align-items: flex-end;
-    flex-direction: column; */
+    height: 100%;
 }
 
 .buttonStyle {

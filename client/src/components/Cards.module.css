@@ -17,3 +17,9 @@ h2 {
     text-decoration: underline;
     margin: 5px 0px 5px 0px;
 }
+
+.noPokemon {
+    width: 200px;
+    height: 500px;
+
+}

@@ -1,26 +1,27 @@
 const axios = require("axios")
 const {Pokemon, Type } = require("../db")
 
-const getAllPokemonAPI = async () =>{
+const getAllPokemonAPI = async () => {
     const pokemonAPI = (await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=40")).data.results;
     const pokemonDataAPI = [];
-    for (const x of pokemonAPI) {
+
+    await Promise.all(pokemonAPI.map(async (x) => {
         const i = (await axios.get(x.url)).data;
         pokemonDataAPI.push({
-        id: i.id.toString(),
-        name: i.name,
-        image: i.sprites.other.home.front_default,
-        life: i.stats[0].base_stat,
-        attack: i.stats[1].base_stat,
-        defense: i.stats[2].base_stat,
-        speed: i.stats[5].base_stat,
-        height: i.height,
-        weight: i.weight,
-        types: i.types.map((e) => e.type.name).join(", "),
+            id: i.id.toString(),
+            name: i.name,
+            image: i.sprites.other.home.front_default,
+            life: i.stats[0].base_stat,
+            attack: i.stats[1].base_stat,
+            defense: i.stats[2].base_stat,
+            speed: i.stats[5].base_stat,
+            height: i.height,
+            weight: i.weight,
+            types: i.types.map((e) => e.type.name).join(", "),
         });
-    }
-    return pokemonDataAPI
+    }))
 
+    return pokemonDataAPI;
 }
 
 

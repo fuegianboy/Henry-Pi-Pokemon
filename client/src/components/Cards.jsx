@@ -13,7 +13,7 @@ const  Cards = ({allPokemons}) => {
               <Card key={index} pokemon={pokemon}/>
             ))
           ) : (
-            <div>
+            <div className={style.noPokemon}>
               <p>No Pokemon !</p>
             </div>
           )}
