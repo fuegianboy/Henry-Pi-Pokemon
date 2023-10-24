@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
 
 import{getPokemons, getTypes, orderByName, orderByAttack, orderByHP, filterBySource, filterByType} from "../redux/actions"
 
@@ -16,6 +15,16 @@ const Home = () => {
   const allPokemons = useSelector(state=>state.pokemons)
   const types = useSelector(state=>state.types)
 
+  const [selectedValue, setSelectedValue] = useState({
+     name:"Name",
+     attack: "Attack",
+     life: "Life",
+     source: "Source",
+     types: "Types",
+
+    });
+
+
   const handleFilterClear = (e) =>{
     e.preventDefault();
     dispatch(getPokemons())
@@ -25,26 +34,46 @@ const Home = () => {
   const handleSortName = (e) => {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
+    setSelectedValue({
+      ...selectedValue,
+      name:"Name"
+    })
   };
 
   const handleSortAttack = (e) => {
     e.preventDefault();
     dispatch(orderByAttack(e.target.value));
+    setSelectedValue({
+      ...selectedValue,
+      name:"Attack"
+    })
   };
 
   const handleSortHP = (e) => {
     e.preventDefault();
-    dispatch(orderByHP(e.target.value));
+    dispatch(orderByHP(e.target.value))
+    setSelectedValue({
+      ...selectedValue,
+      name:"Life"
+    })
   };
 
   const handleFilterSource = (e) => {
     e.preventDefault();
     dispatch(filterBySource(e.target.value));
+    setSelectedValue({
+      ...selectedValue,
+      name:"Source"
+    })
   };
   
   const handleFilterType = (e) => {
     e.preventDefault();
     dispatch(filterByType(e.target.value));
+    setSelectedValue({
+      ...selectedValue,
+      name:"Types"
+    })
   };
 
   useEffect(()=>{
@@ -53,6 +82,7 @@ const Home = () => {
   },[dispatch])
 
   //----------paginado----------------------------------
+        // eslint-disable-next-line
   const [dataQt, setDataQt] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
   
@@ -70,31 +100,31 @@ const Home = () => {
       <Navbar />
           <button className={style.buttonStyle} onClick={(e) => handleFilterClear(e)}>Reload</button>
 
-        <select className={style.selectStyle} onChange={(e) => handleSortName(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleSortName(e)} value={selectedValue.name}>
           <option value="Name" selected>Name</option>
           <option value="asc">A - Z</option>
           <option value="des">Z - A</option>
         </select>
 
-        <select className={style.selectStyle} onChange={(e) => handleSortAttack(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleSortAttack(e)} value={selectedValue.attack} >
           <option value="attack">Attack</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
 
-        <select className={style.selectStyle} onChange={(e) => handleSortHP(e)}>
-          <option value="hp">HP</option>
+        <select className={style.selectStyle} onChange={(e) => handleSortHP(e)} value={selectedValue.life} >
+          <option value="hp">Life</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
 
-        <select className={style.selectStyle} onChange={(e) => handleFilterSource(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleFilterSource(e)} value={selectedValue.source} >
           <option value="Source">Source</option>
           <option value="API">API</option>
           <option value="DB">DB</option>
         </select>
 
-        <select className={style.selectStyle} onChange={(e) => handleFilterType(e)}>
+        <select className={style.selectStyle} onChange={(e) => handleFilterType(e)} value={selectedValue.types} >
           <option value="Types">Types</option>
           {
             types.map((e, index)=>(<option key={index} value={e.name} >{e.name}</option>) )

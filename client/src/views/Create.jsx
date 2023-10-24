@@ -12,20 +12,15 @@ const Create = () => {
 
   const disable = () => {
     let disabled = true;
-    // for (let err in error) {
       if (  (Object.keys(error).length === 1 && Array.isArray(Object.values(error)[0]) && Object.values(error)[0].length === 0)
       ) disabled = false;
-      // if (error[err] === "" || error[err].length === 0) disabled = false;
       else {
         disabled = true;
-        // break;
       }
-    // }
     return disabled;
   };
 
 
-  // (Object.keys(error).length === 1 && Array.isArray(Object.values(error)[0]) && Object.values(error)[0].length === 0)
   
   
   
@@ -123,7 +118,6 @@ const Create = () => {
         )
       }
     }
-    console.log(error)
     
     useEffect(()=>{
         dispatch(getTypes())

@@ -10,9 +10,9 @@ const  Card = ({pokemon}) => {
         <div className={style.divData}>
           <h6>{pokemon.name}</h6>
           <img src={pokemon.image} alt="Not found" width={"150px"}/>
-          <h6>Types:{pokemon.types}</h6>
-          <h6>Attack:{pokemon.attack}</h6>
-          <h6>Life:{pokemon.life}</h6>
+          <h6>Types: {pokemon.types}</h6>
+          <h6>Attack: {pokemon.attack}</h6>
+          <h6>Life: {pokemon.life}</h6>
         </div>
       </NavLink>
 
