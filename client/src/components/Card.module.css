@@ -28,4 +28,6 @@ div h6 {
 
 img {
     margin: 0px 10px 0px 30px;
+    max-width: 200px;
+    /* max-height: 100px; */
 }

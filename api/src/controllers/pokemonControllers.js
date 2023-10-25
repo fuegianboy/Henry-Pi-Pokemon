@@ -48,7 +48,8 @@ const getPokemonByName = async (name) => {
     const dataAPI = await getAllPokemonAPI()
     const dataDB = await getAllPokemonDB()
     const dataAll = [...dataAPI, ...dataDB]
-    const pokemon = dataAll.filter(element => element.name === name )
+    const pokemon = dataAll.filter(element => element.name.toLowerCase().includes(name.toLowerCase()) )
+    // const pokemon = dataAll.filter(element => element.name === name )
     return pokemon
 }
 

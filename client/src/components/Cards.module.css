@@ -1,5 +1,6 @@
 .divContainer {
     background-color: transparent;
+    min-height: 100vh;
 }
 
 .divCards {
