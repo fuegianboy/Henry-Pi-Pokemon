@@ -12,15 +12,11 @@
   align-items: right;
 }
 
-
-
 .divData {
   background-color: rgba(230, 230, 179, 0.2);
   border-radius: 20px;
   border-style: double;
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
   flex-direction: column;
   justify-content: flex-center;
   margin: 0 auto;
@@ -41,20 +37,6 @@ img {
   margin: 10px 10px 10px 0px;
   border-radius: 10%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .pokeball {
@@ -86,16 +68,16 @@ img {
     transform: translateX(0) rotate(0);
   }
   20% {
-    transform: translateX(-5px) rotate(-20deg); /* Ajusta los valores de desplazamiento y rotación si es necesario */
+    transform: translateX(-5px) rotate(-20deg); 
   }
   30% {
-    transform: translateX(5px) rotate(20deg); /* Ajusta los valores de desplazamiento y rotación si es necesario */
+    transform: translateX(5px) rotate(20deg); 
   }
   50% {
-    transform: translateX(-5px) rotate(-10deg); /* Ajusta los valores de desplazamiento y rotación si es necesario */
+    transform: translateX(-5px) rotate(-10deg); 
   }
   60% {
-    transform: translateX(5px) rotate(10deg); /* Ajusta los valores de desplazamiento y rotación si es necesario */
+    transform: translateX(5px) rotate(10deg); 
   }
   100% {
     transform: translateX(0) rotate(0);

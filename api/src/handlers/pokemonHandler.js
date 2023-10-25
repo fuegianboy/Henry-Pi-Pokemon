@@ -30,6 +30,4 @@ const getPokemonById = async (req, res) => {
     }    
 }
 
-
-
 module.exports = {getAllPokemon, postPokemon, getPokemonById};

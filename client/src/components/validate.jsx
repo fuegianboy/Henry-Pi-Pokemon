@@ -1,6 +1,6 @@
 const validate = (input) => {
     let errors = {};
-    let regexImage = /^(http|https):\/\/[^\s]+(\.jpg|\.jpeg|\.png|\.gif)$/;
+    let regexURL = /^(http|https):\/\/[^\s]+(\.jpg|\.jpeg|\.png|\.gif)$/;
 
 
     if (!input.name) {
@@ -10,8 +10,8 @@ const validate = (input) => {
       errors.name = "Must be less than 20 characters";
     }
   
-    if (!regexImage.test(input.image)) errors.image = "Enter a valid URL";
-    if (!input.image) errors.image = "The image cannot be empty";
+    if (!regexURL.test(input.image)) errors.image = "Enter a valid URL";
+    if (!input.image) errors.image = "Image field cannot be empty";
 
   
     if (!input.life) {

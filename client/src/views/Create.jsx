@@ -20,10 +20,6 @@ const Create = () => {
     return disabled;
   };
 
-
-  
-  
-  
   const [data, setData] = useState({
     name:"",
     image:"",
@@ -36,15 +32,8 @@ const Create = () => {
     types:[]
   })
   const [error, setError] = useState({
-    // name:"Se requiere un nombre",
-    // image:"Ingresa una url valida",
-    // life:"No puede ser menor a 0",
-    // attack:"No puede ser menor a 0",
-    // defense:"No puede ser menor a 0",
-    // speed:"No puede ser menor a 0",
-    // height:"No puede ser menor a 0",
-    // weight:"No puede ser menor a 0",
-    // types:"Debes elegir al menos 2 tipos"
+    name:"A name is required",
+
   })
 
   const handleChange = (e) => {

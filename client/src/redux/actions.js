@@ -68,16 +68,14 @@ export function getTypes() {
 }
 
 export function createPokemon(data) {
-    console.log(data)
-    return async function(dispatch) {
+    return async function() {
         try {
             const response = await axios.post(`http://localhost:3001/pokemon`, data)
-            alert("creado")
+            alert("Pokemon Created")
             return response
         } catch (error) {
             console.log(error)
             console.error(error)
-            // alert(error.response.data.error);
         }
     }
 }
@@ -86,7 +84,6 @@ export function getPokemonByName(name) {
     return async function(dispatch) {
         try {
             const response = await axios(`http://localhost:3001/pokemon/?name=${name}`)
-            console.log(response)
             return dispatch({
                 type: GET_POKEMONBYNAME,
                 payload: response.data

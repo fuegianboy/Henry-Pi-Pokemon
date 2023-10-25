@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card"
-// import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
 
 const  Cards = ({allPokemons}) => {

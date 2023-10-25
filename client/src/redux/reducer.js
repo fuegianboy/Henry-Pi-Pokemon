@@ -9,7 +9,6 @@ import {
   GET_DETAIL,
   CLEAR_DETAIL,
   ORDER_BY_HP
-  //     FILTER_CREATED,
 } from "./actions";
 
 let initialState = {
@@ -17,7 +16,6 @@ let initialState = {
   allPokemons: [],
   types: [],
   detail: {},
-  // notFound: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -128,9 +126,6 @@ const rootReducer = (state = initialState, action) => {
         pokemons: [...filterType],
       };
 
-
-      
-      
     default:
       return { ...state };
   }
@@ -138,31 +133,4 @@ const rootReducer = (state = initialState, action) => {
       
 export default rootReducer;
       
-      
-      
-      
-//   case GET_NAME_POKEMONS:
-//     if (action.payload.error) {
-//       return {
-//         ...state,
-//         pokemons: [],
-//         notFound: true,
-//       };
-//     } else {
-//       return {
-//         ...state,
-//         pokemons: action.payload,
-//         notFound: false,
-//       };
-//     }
-
-
-//   case FILTER_CREATED:
-//     const createdFilter =
-//       action.payload === "created"
-//         ? state.allPokemons.filter((e) => e.createdInDb)
-//         : state.allPokemons.filter((e) => !e.createdInDb);
-//     return {
-//       ...state,
-//       pokemons: action.payload === "All" ? state.allPokemons : createdFilter,
-//     };
+ 
