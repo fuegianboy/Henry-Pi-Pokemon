@@ -17,8 +17,11 @@ const validate = (input) => {
     if (!input.life) {
       errors.life = "Can not be empty";
     }
-    if (input.life <= 0) {
+    if (input.life <= 0  ) {
       errors.life = "Can not be less than 0";
+    }
+    if (input.life > 100  ) {
+      errors.life = "Can not be more than 100";
     }
 
 
@@ -29,6 +32,10 @@ const validate = (input) => {
       errors.attack = "Can not be less than 0";
     }
 
+    if (input.attack > 100  ) {
+      errors.attack = "Can not be more than 100";
+    }
+
 
     if (input.defense === "") {
       errors.defense = "Can not be empty";
@@ -36,20 +43,33 @@ const validate = (input) => {
     if (input.defense <= 0) {
       errors.defense = "Can not be less than 0";
     }
-  
+    if (input.defense > 100  ) {
+      errors.defense = "Can not be more than 100";
+    }
 
 
 
     if (input.speed < 0) {
       errors.speed = "Can not be less than 0";
     }
+    if (input.speed > 100  ) {
+      errors.speed = "Can not be more than 100";
+    }
   
+
     if (input.height < 0) {
       errors.height = "Can not be less than 0";
     }
+    if (input.height > 100  ) {
+      errors.height = "Can not be more than 100";
+    }
   
+
     if (input.weight < 0) {
       errors.weight = "Can not be less than 0";
+    }
+    if (input.weight > 100  ) {
+      errors.weight = "Can not be more than 100";
     }
   
     if (input.types.length <= 0) {
