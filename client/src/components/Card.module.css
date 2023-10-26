@@ -1,12 +1,19 @@
 .divContainer {
     background-color: rgba(230, 230, 179, 0.3);
     width: 200px;
-    height: 265px;
+    height: 280px;
     border-style: double;
     border-radius: 5%;
     border-width: 5px;
     margin: 5px 10px 5px 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+.divContainer:hover{
+    /* color: #fff; */
+    background-color: rgba(230, 230, 179, 0.5);
+    cursor: pointer;
 
 }
 
@@ -27,6 +34,7 @@ div h6 {
 }
 
 img {
-    margin: 0px 10px 0px 30px;
-    max-width: 200px;
+    margin: 0px ;
+    width: 170px;
+    height: 170px;
 }
