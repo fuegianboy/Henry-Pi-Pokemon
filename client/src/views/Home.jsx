@@ -27,6 +27,7 @@ const Home = () => {
 
   const handleFilterClear = (e) =>{
     e.preventDefault();
+    setCurrentPage(1)
     dispatch(getPokemons())
   }
 
